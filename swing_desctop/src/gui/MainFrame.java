@@ -8,9 +8,8 @@ public class MainFrame extends JFrame {
         super(title);
 
         setLayout(new BorderLayout());
-        JPanel panel = new JPanel();
-        panel.setBackground(Color.GREEN);
-        add(panel, BorderLayout.CENTER);
+        add(new Toolbar(), BorderLayout.NORTH);
+        add(new MainPannel(), BorderLayout.CENTER);
 
 
         setSize(600, 400);
