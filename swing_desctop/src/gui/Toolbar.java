@@ -6,26 +6,26 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 class ColorButtonListener implements ActionListener {
-    private MainPannel mainPannel;
+    private ColorChangeListener colorChanger;
     private Color color;
 
-    public ColorButtonListener(MainPannel mainPannel, Color color){
-        this.mainPannel = mainPannel;
+    public ColorButtonListener(ColorChangeListener colorChanger, Color color){
+        this.colorChanger = colorChanger;
         this.color = color;
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        mainPannel.changeColor(color);
+        colorChanger.changeColor(color);
     }
 }
 
 public class Toolbar extends JToolBar {
-    public Toolbar(MainPannel mainPannel){
+    public Toolbar(ColorChangeListener colorChanger){
         final JButton redButton = new JButton("Red");
         final JButton blueButton = new JButton("Blue");
 
-        redButton.addActionListener(new ColorButtonListener(mainPannel, Color.RED));
-        blueButton.addActionListener(new ColorButtonListener(mainPannel, Color.BLUE));
+        redButton.addActionListener(new ColorButtonListener(colorChanger, Color.RED));
+        blueButton.addActionListener(new ColorButtonListener(colorChanger, Color.BLUE));
 
         add(redButton);
         add(blueButton);
