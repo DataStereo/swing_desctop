@@ -8,9 +8,12 @@ public class MainFrame extends JFrame {
         super(title);
 
         final MainPannel mainPanel = new MainPannel();
+        final Toolbar toolbar = new Toolbar();
+
+        toolbar.setColorChanger(mainPanel);
 
         setLayout(new BorderLayout());
-        add(new Toolbar(mainPanel), BorderLayout.NORTH);
+        add(toolbar, BorderLayout.NORTH);
         add(mainPanel, BorderLayout.CENTER);
 
         setSize(600, 400);
